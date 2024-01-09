@@ -1,8 +1,11 @@
-package org.codeglimmer.parser;
+package com.codeglimmer.parser;
 
-import org.codeglimmer.model.ParsedCode;
+import com.codeglimmer.model.ParsedCode;
+
+import java.io.IOException;
+import java.nio.file.Path;
 
 public interface CodeParser {
-    ParsedCode parse(String code);
+    ParsedCode parse(Path projectPath) throws IOException;
 
 }

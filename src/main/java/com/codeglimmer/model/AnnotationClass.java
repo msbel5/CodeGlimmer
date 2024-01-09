@@ -2,11 +2,14 @@ package com.codeglimmer.model;
 
 import java.util.List;
 
-public class Record {
+public class AnnotationClass {
     private String name;
-    private List<String> components;
+    private List<AnnotationElement> elements;
     private List<Annotation> annotations;
     private String description;
+
+    // Getters and Setters
+
 
     public String getName() {
         return name;
@@ -16,12 +19,12 @@ public class Record {
         this.name = name;
     }
 
-    public List<String> getComponents() {
-        return components;
+    public List<AnnotationElement> getElements() {
+        return elements;
     }
 
-    public void setComponents(List<String> components) {
-        this.components = components;
+    public void setElements(List<AnnotationElement> elements) {
+        this.elements = elements;
     }
 
     public List<Annotation> getAnnotations() {
@@ -40,3 +43,4 @@ public class Record {
         this.description = description;
     }
 }
+

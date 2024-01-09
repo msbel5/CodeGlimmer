@@ -1,13 +1,11 @@
 package com.codeglimmer.model;
-import java.util.List;
-import java.util.Map;
 
-public class Annotation {
+public class AnnotationElement {
     private String name;
-    private Map<String, String> parameters;
+    private String type;
+    private String defaultValue;
     private String description;
 
-    // Getters and Setters
 
     public String getName() {
         return name;
@@ -17,12 +15,20 @@ public class Annotation {
         this.name = name;
     }
 
-    public Map<String, String> getParameters() {
-        return parameters;
+    public String getType() {
+        return type;
     }
 
-    public void setParameters(Map<String, String> parameters) {
-        this.parameters = parameters;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
     public String getDescription() {
@@ -32,4 +38,7 @@ public class Annotation {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+
 }
