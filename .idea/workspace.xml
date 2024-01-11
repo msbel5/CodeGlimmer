@@ -4,30 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b531f232-ae79-4e02-8d00-55174505b491" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/AnnotationClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/AnnotationElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/File.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/services/DescriptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b531f232-ae79-4e02-8d00-55174505b491" name="Changes" comment="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class.">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Annotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Annotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ComplexityMetrics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ComplexityMetrics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Enum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Enum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Method.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ParsedCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ParsedCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ProjectMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/ProjectMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/model/Record.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/CodeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/CodeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/JavaCodeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/JavaCodeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/writer/CodeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/writer/CodeWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/writer/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/writer/JsonWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +38,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -92,7 +73,18 @@
       <workItem from="1704787672814" duration="135000" />
       <workItem from="1704788817921" duration="5220000" />
       <workItem from="1704794053435" duration="36000" />
+      <workItem from="1704794101053" duration="918000" />
+      <workItem from="1704956596967" duration="41000" />
     </task>
+    <task id="LOCAL-00001" summary="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class.">
+      <option name="closed" value="true" />
+      <created>1704794178040</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704794178040</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +92,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Add new model classes and update existing ones&#10;&#10;Added new model classes AnnotationElement, AnnotationClass, and File and updated existing classes in the model, parser, and writer packages. Also changed package names from 'org' to 'com'.&#10;" />
+    <MESSAGE value="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class." />
   </component>
 </project>
