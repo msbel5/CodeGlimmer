@@ -1,9 +1,13 @@
 package com.codeglimmer.services;
 
+import com.codeglimmer.Main;
 import com.codeglimmer.model.*;
 import com.codeglimmer.model.Class;
 import com.codeglimmer.model.Enum;
 import com.codeglimmer.model.Record;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -13,11 +17,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DescriptionService {
 
-    private static final String API_KEY = "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";
-    private static final String ENGINE_ID = "text-davinci-003"; // You can choose other engines like "davinci", "curie", etc.
-    private static final String API_URL = "https://api.openai.com/v1/engines/" + ENGINE_ID + "/completions";
+    private static final Logger logger = LoggerFactory.getLogger(DescriptionService.class);
+
+
+    private static final String API_KEY = "xxxxxxxx";
+    private static final String ENGINE_ID = "gpt-3.5-turbo"; // You can choose other engines like "davinci", "curie", etc.
+    private static final String API_URL = "https://api.openai.com/v1/chat/completions";
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public String generateDescription(String prompt) throws Exception {
         URL url = new URL(API_URL);
@@ -27,13 +39,14 @@ public class DescriptionService {
         con.setRequestProperty("Authorization", "Bearer " + API_KEY);
         con.setDoOutput(true);
 
-        JSONObject data = new JSONObject();
-        data.put("prompt", prompt);
-        data.put("temperature", 0.7);
-        data.put("max_tokens", 150);
+        ObjectNode data = objectMapper.createObjectNode();
+        data.put("model", ENGINE_ID);
+        ArrayNode messages = data.putArray("messages");
+        messages.add(objectMapper.createObjectNode().put("role", "system").put("content", "You are a helpful assistant."));
+        messages.add(objectMapper.createObjectNode().put("role", "user").put("content", prompt));
 
         try (OutputStream os = con.getOutputStream()) {
-            byte[] input = data.toString().getBytes("utf-8");
+            byte[] input = objectMapper.writeValueAsBytes(data);
             os.write(input, 0, input.length);
         }
 
@@ -48,7 +61,10 @@ public class DescriptionService {
             while ((responseLine = br.readLine()) != null) {
                 response.append(responseLine.trim());
             }
-            return new JSONObject(response.toString()).getJSONArray("choices").getJSONObject(0).getString("text").trim();
+            ObjectNode jsonResponse = (ObjectNode) objectMapper.readTree(response.toString());
+            String description = jsonResponse.get("choices").get(0).get("message").get("content").asText();
+            logger.info("Generated description: {}", description);
+            return description;
         }
     }
 
@@ -223,6 +239,9 @@ public class DescriptionService {
             classCode.append("\n");
         }
 
+        //add class
+
+
         // Adding class declaration
         classCode.append("public class ").append(clazz.getName()).append(" {\n");
 
@@ -314,7 +333,7 @@ public class DescriptionService {
 
 
 
-    public void fillDescriptions(ParsedCode parsedCode) throws Exception {
+    public ParsedCode fillDescriptions(ParsedCode parsedCode) throws Exception {
 
         DescriptionService descriptionService = new DescriptionService();
 
@@ -354,6 +373,8 @@ public class DescriptionService {
         }
 
         parsedCode.setProjectDescription(descriptionService.generateProjectDescription(parsedCode));
+
+        return parsedCode;
 
     }
 

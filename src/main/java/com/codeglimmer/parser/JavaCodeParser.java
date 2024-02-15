@@ -44,6 +44,7 @@ public class JavaCodeParser implements CodeParser {
         parsedCode.setProjectName(extractProjectName(pomFile));
         parseProjectMetadata(pomFile);
         calculateComplexityMetrics(projectPath, parsedCode);
+        parseAndPopulateFiles(projectPath, parsedCode);
 
         return parsedCode;
     }
@@ -318,12 +319,16 @@ public class JavaCodeParser implements CodeParser {
 
                 if (javaVersion == null) {
                     // Try to get the version from the build section if it's not found in properties
-                    Plugin compilerPlugin = model.getBuild().getPluginsAsMap().get("org.apache.maven.plugins:maven-compiler-plugin");
-                    if (compilerPlugin != null) {
-                        Xpp3Dom configuration = (Xpp3Dom) compilerPlugin.getConfiguration();
-                        Xpp3Dom source = configuration.getChild("source");
-                        if (source != null) {
-                            javaVersion = source.getValue();
+                    if (model.getBuild() != null) {
+                        Plugin compilerPlugin = model.getBuild().getPluginsAsMap().get("org.apache.maven.plugins:maven-compiler-plugin");
+                        if (compilerPlugin != null) {
+                            Xpp3Dom configuration = (Xpp3Dom) compilerPlugin.getConfiguration();
+                            if (configuration != null) {
+                                Xpp3Dom source = configuration.getChild("source");
+                                if (source != null) {
+                                    javaVersion = source.getValue();
+                                }
+                            }
                         }
                     }
                 }
@@ -358,8 +363,10 @@ public class JavaCodeParser implements CodeParser {
                 String javaVersion = model.getProperties().getProperty("maven.compiler.source");
 
                 if (javaVersion == null) {
-                    // Try to get the version from the build section if it's not found in properties
-                    Plugin compilerPlugin = model.getBuild().getPluginsAsMap().get("org.apache.maven.plugins:maven-compiler-plugin");
+                    Plugin compilerPlugin = null;
+                    if (model.getBuild() != null) {
+                        compilerPlugin = model.getBuild().getPluginsAsMap().get("org.apache.maven.plugins:maven-compiler-plugin");
+                    }
                     if (compilerPlugin != null) {
                         Xpp3Dom configuration = (Xpp3Dom) compilerPlugin.getConfiguration();
                         Xpp3Dom source = configuration.getChild("source");
