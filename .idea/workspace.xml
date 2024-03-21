@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b531f232-ae79-4e02-8d00-55174505b491" name="Changes" comment="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class.">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="b531f232-ae79-4e02-8d00-55174505b491" name="Changes" comment="Update DescriptionService and code parsing logic&#10;&#10;Refactor the DescriptionService to use ObjectMapper, update the API details and add a logger. Modify the parsing and data writing logic in the Main class and the JavaCodeParser. These changes improve the overall code quality and readability.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/JavaCodeParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/parser/JavaCodeParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeglimmer/services/DescriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeglimmer/services/DescriptionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,9 @@
       <workItem from="1704972040345" duration="24000" />
       <workItem from="1706862179056" duration="1356000" />
       <workItem from="1707736494276" duration="7635000" />
-      <workItem from="1707916325822" duration="2382000" />
+      <workItem from="1707916325822" duration="2726000" />
+      <workItem from="1709103231389" duration="1844000" />
+      <workItem from="1710505740570" duration="1759000" />
     </task>
     <task id="LOCAL-00001" summary="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class.">
       <option name="closed" value="true" />
@@ -103,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704972051835</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update DescriptionService and code parsing logic&#10;&#10;Refactor the DescriptionService to use ObjectMapper, update the API details and add a logger. Modify the parsing and data writing logic in the Main class and the JavaCodeParser. These changes improve the overall code quality and readability.">
+      <option name="closed" value="true" />
+      <created>1707982906695</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707982906695</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,7 +118,8 @@
     <MESSAGE value="Create README.md" />
     <MESSAGE value="Add new model classes and update existing ones&#10;&#10;Added new model classes AnnotationElement, AnnotationClass, and File and updated existing classes in the model, parser, and writer packages. Also changed package names from 'org' to 'com'.&#10;" />
     <MESSAGE value="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement code parsing and data writing logic&#10;&#10;Introduced new classes and updated existing ones to enable code parsing and writing parsed data in JSON format. Adjusted package names to reflect changes. Model, parser, and writer packages prominently updated. CodeGlimmer Application logic has also been demonstrated in the Main class." />
+    <MESSAGE value="Update DescriptionService and code parsing logic&#10;&#10;Refactor the DescriptionService to use ObjectMapper, update the API details and add a logger. Modify the parsing and data writing logic in the Main class and the JavaCodeParser. These changes improve the overall code quality and readability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update DescriptionService and code parsing logic&#10;&#10;Refactor the DescriptionService to use ObjectMapper, update the API details and add a logger. Modify the parsing and data writing logic in the Main class and the JavaCodeParser. These changes improve the overall code quality and readability." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -38,7 +38,7 @@ public class Main {
             Git.cloneRepository()
                     .setURI(repoUrl)
                     .setDirectory(repoDir)
-                    .setCredentialsProvider(new UsernamePasswordCredentialsProvider("msbel5@gmail.com", "Sbsssyb2016+"))
+                    .setCredentialsProvider(new UsernamePasswordCredentialsProvider("msbel5@gmail.com", "*****"))
                     .call();
         } catch (GitAPIException e) {
             logger.error("Error cloning the repository: {}", e.getMessage());
@@ -64,6 +64,7 @@ public class Main {
                 // Writing the JSON output to a file
                 Files.write(Paths.get("output.json"), jsonOutput.getBytes(StandardCharsets.UTF_8));
                 logger.info("JSON output written to output.json");
+                repoDir.delete();
             } else {
                 logger.error("Parsed code is null. Please check the code parser.");
             }
